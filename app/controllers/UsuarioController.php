@@ -15,9 +15,9 @@ class UsuarioController
         header('Location: /users');
         exit;
     }
-    public function show()
+    public function list()
     {
         $users = $this->UsuarioModel->listAll();
-        loadView('users/show', ['users' => $users]);
+        loadView('users/list', ['users' => $users]);
     }
 }
