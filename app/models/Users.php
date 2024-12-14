@@ -28,4 +28,9 @@ class User
             $params
         );
     }
+    public function delete($id)
+    {
+        $params['id'] = $id;
+        return $this->db->query("DELETE FROM USUARIOS WHERE id = :id", $params);
+    }
 }

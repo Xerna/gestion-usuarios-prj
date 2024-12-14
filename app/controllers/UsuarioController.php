@@ -20,4 +20,8 @@ class UsuarioController
         $users = $this->UsuarioModel->listAll();
         loadView('users/list', ['users' => $users]);
     }
+    public function delete($id)
+    {
+        $this->UsuarioModel->delete($id);
+    }
 }

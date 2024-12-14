@@ -14,12 +14,17 @@ include_once basePath('app/views/partials/header.view.php');
         <tbody>
             <?php foreach ($users as $user): ?>
                 <tr>
-                    <td class="col-1">1</td>
+                    <td class="col-1"><?= $user['id']; ?></td>
                     <td class="col-3"><?= $user['nombre']; ?></td>
                     <td class="col-3"><?= $user['correo']; ?></td>
                     <td class="col-2">
                         <a href=""><i class="fa-solid fa-eye fs-5 "></i></a>
-                        <a href=""><i class="fa-solid fa-trash fs-5 text-danger ms-2"></i></a>
+                        <form class="form" action="/users/delete/<?= $user['id']; ?>" method="POST" style="display: inline;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn" onclick=" return confirm('¿Estás seguro?');">
+                                <i class="fa-solid fa-trash fs-5 text-danger ms-2"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

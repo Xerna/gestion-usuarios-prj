@@ -21,6 +21,11 @@ class Router
         $this->routes['POST'][$path] = $handler;
     }
 
+    public function delete(string $path, string $handler): void
+    {
+        $this->routes['DELETE'][$path] = $handler;
+    }
+
     public function setNotFound(string $handler): void
     {
         $this->notFoundHandler = $handler;
