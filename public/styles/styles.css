@@ -2,3 +2,16 @@ body{
     background: rgb(148,75,184);
     background: linear-gradient(90deg, rgba(148,75,184,1) 0%, rgba(53,65,191,1) 52%, rgba(0,212,255,1) 100%);
 }
+
+
+.dataTables_filter label {
+    width: 100%;
+}
+.dataTables_number label{
+    width: 100%;
+}
+.dataTables_length select {
+    display: inline-block;
+    margin: 0 5px;
+}
+

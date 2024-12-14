@@ -2,7 +2,7 @@
 include_once basePath('app/views/partials/header.view.php');
 ?>
 <div class="container-sm mx-auto bg-white p-5 " style="width: 75%;">
-    <table class="table table-striped">
+    <table class="table table-striped " id="user-table">
         <thead>
             <tr>
                 <th scope="col">#</th>
