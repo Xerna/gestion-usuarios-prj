@@ -1,5 +1,5 @@
 <?php
-include_once basePath('app/views/partials/header.view.php');
+loadPartial('header')
 ?>
 <div class="container-sm mx-auto bg-white p-5 " style="width: 75%;">
     <table class="table table-striped " id="user-table">
@@ -18,7 +18,7 @@ include_once basePath('app/views/partials/header.view.php');
                     <td class="col-3"><?= $user['nombre']; ?></td>
                     <td class="col-3"><?= $user['correo']; ?></td>
                     <td class="col-2">
-                        <a href=""><i class="fa-solid fa-eye fs-5 "></i></a>
+                        <a href="/users/<?=$user['id'];?>"><i class="fa-solid fa-eye fs-5 "></i></a>
                         <form class="form" action="/users/delete/<?= $user['id']; ?>" method="POST" style="display: inline;">
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn" onclick=" return confirm('¿Estás seguro?');">
@@ -35,4 +35,4 @@ include_once basePath('app/views/partials/header.view.php');
 
 
 <?php
-include_once basePath('app/views/partials/footer.view.php');
+loadPartial('footer');
