@@ -21,10 +21,13 @@ class User
         );
     }
     
-    public function delete($id)
+    public function destroy($id)
     {
-        $params['id'] = $id;
-        return $this->db->query("DELETE FROM USUARIOS WHERE id = :id", $params);
+        $params = [
+            'id' => $id
+        ];
+        $result = $this->db->query("DELETE FROM USUARIOS WHERE id = :id", $params);
+        return $result->rowCount() > 0;
     }
     public function checkEmailExist($email){
         $params = [
@@ -40,5 +43,15 @@ class User
             'id' => $id
         ];
         return $this->db->query("SELECT * FROM USUARIOS WHERE id = :id", $params)->fetch();
+    }
+    public function checkId($id){
+        $params = [
+            'id' => $id
+        ];
+        $result = $this->db->query("SELECT * FROM USUARIOS WHERE id = :id", $params);
+        return $result->rowCount() > 0;
+    }
+    public function update($params){
+        return $this->db->query("UPDATE USUARIOS SET nombre = :nombre, apellido = :apellido, correo = :correo WHERE id = :id", $params);
     }
 }

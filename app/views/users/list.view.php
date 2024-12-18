@@ -1,7 +1,12 @@
 <?php
 loadPartial('header')
 ?>
+
 <div class="container-sm mx-auto bg-white p-5 " style="width: 75%;">
+    
+<?= loadPartial('message', [
+      'message' => $message ?? ''
+])?>
     <table class="table table-striped " id="user-table">
         <thead>
             <tr>
@@ -19,12 +24,6 @@ loadPartial('header')
                     <td class="col-3"><?= $user['correo']; ?></td>
                     <td class="col-2">
                         <a href="/users/<?=$user['id'];?>"><i class="fa-solid fa-eye fs-5 "></i></a>
-                        <form class="form" action="/users/delete/<?= $user['id']; ?>" method="POST" style="display: inline;">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn" onclick=" return confirm('¿Estás seguro?');">
-                                <i class="fa-solid fa-trash fs-5 text-danger ms-2"></i>
-                            </button>
-                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

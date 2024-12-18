@@ -28,6 +28,11 @@ function inspect($data)
     var_dump($data);
     echo '</pre>';
 }
+function redirect($url)
+{
+  header("Location: {$url}");
+  exit;
+}
 function loadView($name, $data = [])
 {
     $viewPath = basePath("app/views/{$name}.view.php");
